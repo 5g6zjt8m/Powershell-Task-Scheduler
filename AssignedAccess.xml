@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AssignedAccessConfiguration  
+  xmlns="http://schemas.microsoft.com/AssignedAccess/2017/config" 
+  xmlns:win11="http://schemas.microsoft.com/AssignedAccess/2022/config"
+  xmlns:v3="http://schemas.microsoft.com/AssignedAccess/2020/config"
+  xmlns:r1809="http://schemas.microsoft.com/AssignedAccess/201810/config">
+  <Profiles>
+    <Profile Id="{9A2A490F-10F6-4764-974A-43B19E722C23}">       
+      <AllAppsList>
+        <AllowedApps> 
+          <App DesktopAppPath="%ProgramFiles%\Google\Chrome\Application\chrome.exe" r1809:AutoLaunch="true" r1809:AutoLaunchArguments="https://github.com/5g6zjt8m --kiosk" />
+          <!--These apps need to be allowed as they run in the background, and will block the screen with a prompt when restricted.-->
+          <App DesktopAppPath="%ProgramFiles%\Sophos\Sophos UI\Sophos UI.exe"/>
+          <App AppUserModelId="Microsoft.WindowsStore_8wekyb3d8bbwe!App" />
+          <App AppUserModelId="Microsoft.MicrosoftOfficeHub_8wekyb3d8bbwe!Microsoft.MicrosoftOfficeHub" />
+          <App AppUserModelId="Microsoft.YourPhone_8wekyb3d8bbwe!App" />
+          <App AppUserModelId="Microsoft.WindowsCamera_8wekyb3d8bbwe!App" /><!--kinda sus that this runs on its own-->
+          <App DesktopAppPath="%SystemRoot%\SystemApps\Microsoft.Windows.AssignedAccessLockApp_cw5n1h2txyewy\AssignedAccessLockApp.exe"/>
+          <App DesktopAppPath="%SystemRoot%\SystemApps\Microsoft.Windows.CallingShellApp_cw5n1h2txyewy\CallingShellApp.exe"/>
+          <App DesktopAppPath="%SystemRoot%\SystemApps\Microsoft.Windows.AppRep.ChxApp_cw5n1h2txyewy\CHXSmartScreen.exe"/>
+          <App DesktopAppPath="%SystemRoot%\SystemApps\Microsoft.ECApp_8wekyb3d8bbwe\Microsoft.ECApp.exe"/>
+          <App DesktopAppPath="%SystemRoot%\SystemApps\Microsoft.Win32WebViewHost_cw5n1h2txyewy\Win32WebViewHost.exe"/>
+        </AllowedApps> 
+      </AllAppsList> 
+	  <StartLayout>
+                <![CDATA[<LayoutModificationTemplate xmlns:defaultlayout="http://schemas.microsoft.com/Start/2014/FullDefaultLayout" xmlns:start="http://schemas.microsoft.com/Start/2014/StartLayout" Version="1" xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification">
+                      <LayoutOptions StartTileGroupCellWidth="6" />
+                      <DefaultLayoutOverride>
+                        <StartLayoutCollection>
+                          <defaultlayout:StartLayout GroupCellWidth="6">
+                            <start:Group Name="Apps">
+                            <start:DesktopApplicationTile Size="2x2" Column="0" Row="0" DesktopApplicationLinkPath="%AllUsersProfile%\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk" />
+                            </start:Group>
+                          </defaultlayout:StartLayout>
+                        </StartLayoutCollection>
+                      </DefaultLayoutOverride>
+                    </LayoutModificationTemplate>
+                ]]>
+            </StartLayout>
+      <win11:StartPins>
+        <![CDATA[  
+          { "pinnedList":[	{"desktopAppLink":"%AllUsersProfile%\\Microsoft\\Windows\\Start Menu\\Programs\\Google Chrome.lnk"}
+          ] }
+        ]]>
+      </win11:StartPins>
+      <Taskbar ShowTaskbar="false" />
+    </Profile> 
+  </Profiles>
+  <Configs>
+<v3:GlobalProfile Id="{9A2A490F-10F6-4764-974A-43B19E722C23}" />
+  </Configs>
+</AssignedAccessConfiguration>
